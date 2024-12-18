@@ -1,0 +1,27 @@
+
+{% extends 'Bookapp/index.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="jumbotron text-center">
+    <h1> the largest library in the middle east</h1>
+    <p> you con find any book about computing</p>
+
+</div>
+
+
+<div class="container">
+    <form action="/signup" method="post">
+        {% csrf_token %}
+
+        {{form | crispy}}
+        
+        
+
+
+        
+        <input type="submit" value="signup">
+    </form>
+</div>
+
+{% endblock %}

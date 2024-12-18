@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dd{ border: 5px solid rgb(23, 48, 189);
+            font-weight: bolder;
+            font-size: medium;
+            padding: 5px;
+            border-collapse: collapse;
+}
+    </style>
+<link rel="stylesheet" href="{% static 'Bookapp/css/bootstrap.min.css' %}"> 
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-10 font-weight-bolder "style="text-shadow: 2px 2px 20px brown">
+            welcome to my library
+
+        </div>
+        <div class="col-md-2 font-weight-bolder">
+            {% if user.is_authenticated%}
+            welcome <span class="text-success">{{user.username}} </span>
+            {% else%}
+            <a href="{% url 'sign_up'%}" class="text-danger"> sign up</a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+    <footer style="background-color:rebeccapurple;color: black; font-size: larger; font-weight: bolder;padding: 20px;margin-top: 20px; text-align: center;">
+        good bye
+    </footer>
+</body>
+</html>
